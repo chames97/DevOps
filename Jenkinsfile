@@ -1,15 +1,12 @@
 pipeline {
     agent any
-    options {
-        ansiColor('xterm')
-    }
 
     environment {
-        git_url = "https://github.com/RadhouaneHabachi/devops_ci.git"
-        git_branch = "main"
-        backend_imageName = "redone/backend"
-        frontend_imageName = "redone/frontend"
-        registryCredentials = "NEXUS_CRED"
+        git_url = "https://github.com/chames97/DevOps.git"
+        git_branch = "master"
+        backend_imageName = "DevOps/backend"
+        frontend_imageName = "DevOps/frontend"
+        registryCredentials = "nexus_credentials"
         nexus_registry = "http://localhost:1111"
         backendDockerImage = ""
         frontendDockerImage = ""
