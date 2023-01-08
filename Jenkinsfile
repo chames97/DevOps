@@ -46,14 +46,6 @@ pipeline {
             }
         }
 
-        stage('Build frontend docker image') {
-            steps{
-                script {
-                    frontendDockerImage = docker.build("${frontend_imageName}:${env.BUILD_NUMBER}", "frontend/")
-                }
-            }
-        }
-
         stage('Upload backend docker image to Nexus') {
             steps{
                 script {
@@ -65,6 +57,15 @@ pipeline {
                 }
             }
         }
+
+        stage('Build frontend docker image') {
+            steps{
+                script {
+                    frontendDockerImage = docker.build("${frontend_imageName}:${env.BUILD_NUMBER}", "frontend/")
+                }
+            }
+        }
+
 
         stage('Upload frontend docker image to Nexus') {
             steps{
